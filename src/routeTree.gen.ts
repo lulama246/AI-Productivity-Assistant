@@ -14,6 +14,7 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as DonateRouteImport } from './routes/donate'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommunityProjectsRouteImport } from './routes/community-projects'
+import { Route as AiAssistantRouteImport } from './routes/ai-assistant'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -42,6 +43,11 @@ const CommunityProjectsRoute = CommunityProjectsRouteImport.update({
   path: '/community-projects',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiAssistantRoute = AiAssistantRouteImport.update({
+  id: '/ai-assistant',
+  path: '/ai-assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -56,6 +62,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ai-assistant': typeof AiAssistantRoute
   '/community-projects': typeof CommunityProjectsRoute
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ai-assistant': typeof AiAssistantRoute
   '/community-projects': typeof CommunityProjectsRoute
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ai-assistant': typeof AiAssistantRoute
   '/community-projects': typeof CommunityProjectsRoute
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/ai-assistant'
     | '/community-projects'
     | '/contact'
     | '/donate'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/ai-assistant'
     | '/community-projects'
     | '/contact'
     | '/donate'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/ai-assistant'
     | '/community-projects'
     | '/contact'
     | '/donate'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AiAssistantRoute: typeof AiAssistantRoute
   CommunityProjectsRoute: typeof CommunityProjectsRoute
   ContactRoute: typeof ContactRoute
   DonateRoute: typeof DonateRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommunityProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai-assistant': {
+      id: '/ai-assistant'
+      path: '/ai-assistant'
+      fullPath: '/ai-assistant'
+      preLoaderRoute: typeof AiAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AiAssistantRoute: AiAssistantRoute,
   CommunityProjectsRoute: CommunityProjectsRoute,
   ContactRoute: ContactRoute,
   DonateRoute: DonateRoute,
