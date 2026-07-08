@@ -12,7 +12,9 @@ import { Toaster } from "sonner";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { Nav, Footer } from "@/components/site-chrome";
+import { Footer } from "@/components/site-chrome";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 function NotFoundComponent() {
   return (
@@ -128,12 +130,25 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Nav />
-      <main className="min-h-[60vh]">
-        <Outlet />
-      </main>
-      <Footer />
+      <SidebarProvider>
+        <div className="flex min-h-screen w-full">
+          <AppSidebar />
+          <div className="flex min-w-0 flex-1 flex-col">
+            <header className="sticky top-0 z-30 flex h-12 items-center gap-2 px-4">
+              <div className="glass flex h-10 items-center gap-2 rounded-full px-3">
+                <SidebarTrigger />
+                <span className="text-xs font-medium text-muted-foreground">Menu</span>
+              </div>
+            </header>
+            <main className="min-h-[60vh] flex-1">
+              <Outlet />
+            </main>
+            <Footer />
+          </div>
+        </div>
+      </SidebarProvider>
       <Toaster richColors position="top-center" />
     </QueryClientProvider>
+
   );
 }
