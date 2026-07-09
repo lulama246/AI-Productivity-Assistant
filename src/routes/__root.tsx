@@ -85,14 +85,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "An AI-powered platform connecting people who need help with resources, volunteers, and organizations that care.",
       },
-      { property: "og:title", content: "Lulu's Helping Hands" },
+      { property: "og:title", content: "Lulu's Helping Hands — Helping People. Changing Lives." },
       {
         property: "og:description",
         content:
-          "Empowering communities through compassion, technology, and Artificial Intelligence.",
+          "An AI-powered platform connecting people who need help with resources, volunteers, and organizations that care.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Lulu's Helping Hands — Helping People. Changing Lives." },
+      { name: "twitter:description", content: "An AI-powered platform connecting people who need help with resources, volunteers, and organizations that care." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/84693bfd-072f-4e81-a719-a2ee27c7c00d/id-preview-8530ed2b--1f3327f6-c49d-46f3-b1a0-24366060def0.lovable.app-1783511947475.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/84693bfd-072f-4e81-a719-a2ee27c7c00d/id-preview-8530ed2b--1f3327f6-c49d-46f3-b1a0-24366060def0.lovable.app-1783511947475.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
